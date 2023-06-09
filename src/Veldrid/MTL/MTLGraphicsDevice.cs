@@ -57,6 +57,32 @@ namespace Veldrid.MTL
         {
         }
 
+        public override void DisplayLinkUpdateActiveMonitor(int x, int y, int w, int h)
+        {
+            if (_displayLink != null)
+            {
+                _displayLink.UpdateActiveMonitor(x, y, w, h);
+            }
+        }
+
+        public override double DisplayLinkGetActualOutputVideoRefreshPeriod()
+        {
+            if (_displayLink != null)
+            {
+                return _displayLink.GetActualOutputVideoRefreshPeriod();
+            }
+            return -1.0f;
+        }
+
+        public override double DisplayLinkGetNominalOutputVideoRefreshPeriod()
+        {
+            if (_displayLink != null)
+            {
+                return _displayLink.GetNominalOutputVideoRefreshPeriod();
+            }
+            return -1.0f;
+        }
+
         public MTLGraphicsDevice(
             GraphicsDeviceOptions options,
             SwapchainDescription? swapchainDesc,

@@ -39,7 +39,7 @@ namespace Veldrid
 
         /// <summary>
         /// Gets a value identifying whether texture coordinates begin in the top left corner of a Texture.
-        /// If true, (0, 0) refers to the top-left texel of a Texture. If false, (0, 0) refers to the bottom-left 
+        /// If true, (0, 0) refers to the top-left texel of a Texture. If false, (0, 0) refers to the bottom-left
         /// texel of a Texture. This property is useful for determining how the output of a Framebuffer should be sampled.
         /// </summary>
         public abstract bool IsUvOriginTopLeft { get; }
@@ -952,6 +952,21 @@ namespace Veldrid
         /// <param name="info">If successful, this will contain the <see cref="BackendInfoOpenGL"/> for this instance.</param>
         /// <returns>True if this is an Metal GraphicsDevice and the operation was successful. False otherwise.</returns>
         public virtual bool GetMetalInfo(out BackendInfoMetal info) { info = null; return false; }
+
+        public virtual void DisplayLinkUpdateActiveMonitor(int x, int y, int w, int h)
+        {
+            return;
+        }
+
+        public virtual double DisplayLinkGetActualOutputVideoRefreshPeriod()
+        {
+            return -1.0f;
+        }
+
+        public virtual double DisplayLinkGetNominalOutputVideoRefreshPeriod()
+        {
+            return -1.0f;
+        }
 
         /// <summary>
         /// Gets a <see cref="BackendInfoMetal"/> for this instance. This method will only succeed if this is an OpenGL

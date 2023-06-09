@@ -8,5 +8,8 @@ namespace Veldrid.MTL
     internal interface IMTLDisplayLink : IDisposable
     {
         event Action Callback;
+        public double GetActualOutputVideoRefreshPeriod();
+        public double GetNominalOutputVideoRefreshPeriod();
+        public void UpdateActiveMonitor(int x, int y, int w, int h);
     }
 }
